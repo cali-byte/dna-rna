@@ -162,8 +162,9 @@ func translate() {
         mRNArr.remove(at: 0)
     }
     print("〉The amino acid chain consists of \(protein).")
+    var finalError = 1
     func final() {
-        var finalError = 0
+        finalError = 0
         print("〉Type key to show the full amino acid names, or type quit to quit (case sensitive)")
         if let uhh2 = readLine() {
             if uhh2 == "key" {
@@ -221,11 +222,13 @@ func translate() {
                 exit(0)
             } else {
                 finalError += 1
-                print("")
+                print("ⓧ Invalid input; please try again.")
             }
         }
     }
-    final()
+    while finalError > 0 {
+        final()
+    }
 }
 
 print("〉Type transcribe to transcribe, translate to translate, quit to quit (case sensitive)")
