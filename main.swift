@@ -106,6 +106,7 @@ func translate() {
         }
         if reallyHelp > 0 {
             print("ⓧ Program halted due to an invalid character.")
+            exit(0)
         }
     }
     owoProofing()
@@ -162,6 +163,7 @@ func translate() {
     }
     print("〉The amino acid chain consists of \(protein).")
     func final() {
+        var finalError = 0
         print("〉Type key to show the full amino acid names, or type quit to quit (case sensitive)")
         if let uhh2 = readLine() {
             if uhh2 == "key" {
@@ -217,6 +219,9 @@ func translate() {
             } else if uhh2 == "quit" {
                 print("〉Program exited.")
                 exit(0)
+            } else {
+                finalError += 1
+                print("")
             }
         }
     }
