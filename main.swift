@@ -68,7 +68,7 @@ func translate() {
         owo.remove(at: 0)
         var help = 0
         let count = owo.count
-        for i in 1...count {
+        for _ in 1...count {
             var num = 0
             for char in owo[0] {
                 num += 1
@@ -95,7 +95,7 @@ func translate() {
         uwu.remove(at: 0)
         var reallyHelp = 0
         let count = uwu.count
-        for i in 1...count {
+        for _ in 1...count {
             for char in uwu[0] {
                 if char != "A" && char != "U" && char != "G" && char != "C" {
                     reallyHelp += 1
@@ -119,7 +119,7 @@ func translate() {
     var protein = [""]
     protein.remove(at: 0)
     let mcount = mRNArr.count
-    for i in 1...mcount {
+    for _ in 1...mcount {
         if mRNArr[0] == "GGU" || mRNArr[0] == "GGC" || mRNArr[0] == "GGA" || mRNArr[0] == "GGG" {
             protein += [aminoAcids[0]] //Gly
         } else if mRNArr[0] == "UUU" || mRNArr[0] == "UUC" {
@@ -174,7 +174,7 @@ func translate() {
             if uhh2 == "key" {
                 var expanded = [""]
                 expanded.remove(at: 0)
-                for i in 1...mcount {
+                for _ in 1...mcount {
                     if protein[0] == "Gly" {
                         expanded += ["Glycine"]
                     } else if protein[0] == "Phe" {
