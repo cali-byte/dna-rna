@@ -60,7 +60,6 @@ func translate() {
     var mRNArr = [""]
     mRNArr += mRNA.components(separatedBy: " ")
     mRNArr.remove(at: 0)
-    let aminoAcids = ["Gly","Phe","Leu","Ser","Tyr","Cys","Try","Pro","His","Glu","Arg","Iso","Met","Thr","Asp","Lys","Val","Ala","AspAc","GluAc","Stop"]
     //num error checking
     func owoProofing() {
         var owo = [""]
@@ -119,7 +118,16 @@ func translate() {
     var protein = [""]
     protein.remove(at: 0)
     let mcount = mRNArr.count
+    let codons = ["GGU","GGC","GGA","GGG"]
+    let aminoAcids = ["Gly","Gly","Gly","Gly"]
+    let iNeedThisLater = ["Phe","Leu","Ser","Tyr","Cys","Try","Pro","His","Glu","Arg","Iso","Met","Thr","Asp","Lys","Val","Ala","AspAc","GluAc","Stop"]
+    let someDictionary = Dictionary(uniqueKeysWithValues: zip(codons,aminoAcids))
+    print(someDictionary)
     for _ in 1...mcount {
+        print(someDictionary[mRNArr[0]])
+    }
+}
+/*    for _ in 1...mcount {
         if mRNArr[0] == "GGU" || mRNArr[0] == "GGC" || mRNArr[0] == "GGA" || mRNArr[0] == "GGG" {
             protein += [aminoAcids[0]] //Gly
         } else if mRNArr[0] == "UUU" || mRNArr[0] == "UUC" {
@@ -233,7 +241,7 @@ func translate() {
     while finalError > 0 {
         final()
     }
-}
+} */
 
 print("〉Type transcribe to transcribe, translate to translate, quit to quit (case sensitive)")
 var e: String = ""
