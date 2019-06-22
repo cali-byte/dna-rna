@@ -112,6 +112,10 @@ func translate() {
     owoProofing()
     uwuProofing()
     //actual translation
+    let g = ["GGG","GGC","GGA","GGU","GCG","GCC","GCA","GCU","GAG","GAC","GAA","GAU","GUG","GUC","GUA","GUU"]
+    let c = ["CGG","CGC","CGA","CGU","CCG","CCC","CCA","CCU","CAG","CAC","CAA","CAU","CUG","CUC","CUA","CUU"]
+    let a = ["AGG","AGC","AGA","AGU","ACG","ACC","ACA","ACU","AAG","AAC","AAA","AAU","AUG","AUC","AUA","AUU"]
+    let u = ["UGG","UGC","UGA","UGU","UCG","UCC","UCA","UCU","UAG","UAC","UAA","UAU","UUG","UUC","UUA","UUU"]
     var protein = [""]
     protein.remove(at: 0)
     let mcount = mRNArr.count
