@@ -76,7 +76,6 @@ func translate() {
                 help += 1
                 print("△ Watch out: Codon \(owo[0]) is too short!")
             } else if (num / 3) > 1 || (num % 3) > 0 {
-                var aaa = num / 3
                 help += 1
                 print("△ Watch out: Codon \(owo[0]) is too long!")
             }
@@ -111,65 +110,17 @@ func translate() {
     owoProofing()
     uwuProofing()
     //actual translation
-    let g = ["GGG","GGC","GGA","GGU","GCG","GCC","GCA","GCU","GAG","GAC","GAA","GAU","GUG","GUC","GUA","GUU"]
-    let c = ["CGG","CGC","CGA","CGU","CCG","CCC","CCA","CCU","CAG","CAC","CAA","CAU","CUG","CUC","CUA","CUU"]
-    let a = ["AGG","AGC","AGA","AGU","ACG","ACC","ACA","ACU","AAG","AAC","AAA","AAU","AUG","AUC","AUA","AUU"]
-    let u = ["UGG","UGC","UGA","UGU","UCG","UCC","UCA","UCU","UAG","UAC","UAA","UAU","UUG","UUC","UUA","UUU"]
     var protein = [""]
     protein.remove(at: 0)
     let mcount = mRNArr.count
-    let codons = ["GGU","GGC","GGA","GGG"]
-    let aminoAcids = ["Gly","Gly","Gly","Gly"]
-    let iNeedThisLater = ["Phe","Leu","Ser","Tyr","Cys","Try","Pro","His","Glu","Arg","Iso","Met","Thr","Asp","Lys","Val","Ala","AspAc","GluAc","Stop"]
-    let someDictionary = Dictionary(uniqueKeysWithValues: zip(codons,aminoAcids))
-    print(someDictionary)
+    let codons = ["GGU","GGC","GGA","GGG","UUU","UUC","UUA","UUG","CUU","CUC","CUA","CUG","UCU","UCC","UCA","UCG","AGU","AGC","UAU","UAC","UGU","UGC","UGG","CCU","CCC","CCA","CCG","CAU","CAC","CAA","CAG","CGU","CGC","CGA","CGG","AGA","AGG","AUA","AUC","AUU","AUG","ACG","ACA","ACC","ACU","AAU","AAC","AAA","AAG","GUU","GUC","GUA","GUG","GCU","GCC","GCA","GCG","GAU","GAC","GAA","GAG","UAA","UAG","UGA"]
+    let aminoA = ["Gly","Gly","Gly","Gly","Phe","Phe","Leu","Leu","Leu","Leu","Leu","Leu","Ser","Ser","Ser","Ser","Ser","Ser","Tyr","Tyr","Cys","Cys","Try","Pro","Pro","Pro","Pro","His","His","Glu","Glu","Arg","Arg","Arg","Arg","Arg","Arg","Iso","Iso","Iso","Met","Thr","Thr","Thr","Thr","Asp","Asp","Lys","Lys","Val","Val","Val","Val","Ala","Ala","Ala","Ala","AspAc","AspAc","GluAc","GluAc","Stop","Stop","Stop"]
+    let someDictionary = Dictionary(uniqueKeysWithValues: zip(codons,aminoA))
     for _ in 1...mcount {
-        print(someDictionary[mRNArr[0]])
-    }
-}
-/*    for _ in 1...mcount {
-        if mRNArr[0] == "GGU" || mRNArr[0] == "GGC" || mRNArr[0] == "GGA" || mRNArr[0] == "GGG" {
-            protein += [aminoAcids[0]] //Gly
-        } else if mRNArr[0] == "UUU" || mRNArr[0] == "UUC" {
-            protein += [aminoAcids[1]] //Phe
-        } else if mRNArr[0] == "UUA" || mRNArr[0] == "UUG" || mRNArr[0] == "CUU" || mRNArr[0] == "CUC" || mRNArr[0] == "CUA" || mRNArr[0] == "CUG" {
-            protein += [aminoAcids[2]] //Leu
-        } else if mRNArr[0] == "UCU" || mRNArr[0] == "UCC" || mRNArr[0] == "UCA" || mRNArr[0] == "UCG" || mRNArr[0] == "AGU" || mRNArr[0] == "AGC" {
-            protein += [aminoAcids[3]] //Ser
-        } else if mRNArr[0] == "UAU" || mRNArr[0] == "UAC" {
-            protein += [aminoAcids[4]] //Tyr
-        } else if mRNArr[0] == "UGU" || mRNArr[0] == "UGC" {
-            protein += [aminoAcids[5]] //Cys
-        } else if mRNArr[0] == "UGG" {
-            protein += [aminoAcids[6]] //Try
-        } else if mRNArr[0] == "CCU" || mRNArr[0] == "CCC" || mRNArr[0] == "CCA" || mRNArr[0] == "CCG" {
-            protein += [aminoAcids[7]] //Pro
-        } else if mRNArr[0] == "CAU" || mRNArr[0] == "CAC" {
-            protein += [aminoAcids[8]] //His
-        } else if mRNArr[0] == "CAA" || mRNArr[0] == "CAG" {
-            protein += [aminoAcids[9]] //Glu
-        } else if mRNArr[0] == "CGU" || mRNArr[0] == "CGC" || mRNArr[0] == "CGA" || mRNArr[0] == "CGG" || mRNArr[0] == "AGA" || mRNArr[0] == "AGG" {
-            protein += [aminoAcids[10]] //Arg
-        } else if mRNArr[0] == "AUA" || mRNArr[0] == "AUC" || mRNArr[0] == "AUU" {
-            protein += [aminoAcids[11]] //Iso
-        } else if mRNArr[0] == "AUG" {
-            protein += [aminoAcids[12]] //Met
-        } else if mRNArr[0] == "ACG" || mRNArr[0] == "ACA" || mRNArr[0] == "ACC" || mRNArr[0] == "ACU" {
-            protein += [aminoAcids[13]] //Thr
-        } else if mRNArr[0] == "AAU" || mRNArr[0] == "AAC" {
-            protein += [aminoAcids[14]] //Asp
-        } else if mRNArr[0] == "AAA" || mRNArr[0] == "AAG" {
-            protein += [aminoAcids[15]] //Lys
-        } else if mRNArr[0] == "GUU" || mRNArr[0] == "GUC" || mRNArr[0] == "GUA" || mRNArr[0] == "GUG" {
-            protein += [aminoAcids[16]] //Val
-        } else if mRNArr[0] == "GCU" || mRNArr[0] == "GCC" || mRNArr[0] == "GCA" || mRNArr[0] == "GCG" {
-            protein += [aminoAcids[17]] //Ala
-        } else if mRNArr[0] == "GAU" || mRNArr[0] == "GAC" {
-            protein += [aminoAcids[18]] //AspAc
-        } else if mRNArr[0] == "GAA" || mRNArr[0] == "GAG" {
-            protein += [aminoAcids[19]] //GluAc
-        } else if mRNArr[0] == "UAA" || mRNArr[0] == "UAG" || mRNArr[0] == "UGA" {
-            protein += [aminoAcids[20]] //(of an event, action, or process) come to an end; cease to happen
+        if var current2 = someDictionary[mRNArr[0]] {
+            current2 = current2.replacingOccurrences(of: "Optional", with: "", options: NSString.CompareOptions.literal, range: nil)
+            protein += [current2]
+            current2 = ""
         }
         mRNArr.remove(at: 0)
     }
@@ -241,7 +192,7 @@ func translate() {
     while finalError > 0 {
         final()
     }
-} */
+} 
 
 print("〉Type transcribe to transcribe, translate to translate, quit to quit (case sensitive)")
 var e: String = ""
