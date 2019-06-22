@@ -133,49 +133,14 @@ func translate() {
             if uhh2 == "key" {
                 var expanded = [""]
                 expanded.remove(at: 0)
+                let min = ["Gly","Phe","Leu","Ser","Tyr","Cys","Try","Pro","His","Glu","Arg","Iso","Met","Thr","Asp","Lys","Val","Ala","AspAc","GluAc","Stop"]
+                let max = ["Glycine","Phenylalanine","Leucine","Serine","Tyrosine","Cysteine","Trytophan","Proline","Histidine","Glutamine","Arginine","Isoleucine","Methionine","Threonine","Asparagine","Lysine","Valine","Alanine","Aspartic acid","Glutamic acid","Stop"]
+                let secondDictionary = Dictionary(uniqueKeysWithValues: zip(min,max))
                 for _ in 1...mcount {
-                    if protein[0] == "Gly" {
-                        expanded += ["Glycine"]
-                    } else if protein[0] == "Phe" {
-                        expanded += ["Phenylalanine"]
-                    } else if protein[0] == "Leu" {
-                        expanded += ["Leucine"]
-                    } else if protein[0] == "Ser" {
-                        expanded += ["Serine"]
-                    } else if protein[0] == "Tyr" {
-                        expanded += ["Tyrosine"]
-                    } else if protein[0] == "Cys" {
-                        expanded += ["Cysteine"]
-                    } else if protein[0] == "Try" {
-                        expanded += ["Trytophan"]
-                    } else if protein[0] == "Pro" {
-                        expanded += ["Proline"]
-                    } else if protein[0] == "His" {
-                        expanded += ["Histidine"]
-                    } else if protein[0] == "Glu" {
-                        expanded += ["Glutamine"]
-                    } else if protein[0] == "Arg" {
-                        expanded += ["Arginine"]
-                    } else if protein[0] == "Iso" {
-                        expanded += ["Isoleucine"]
-                    } else if protein[0] == "Met" {
-                        expanded += ["Methionine"]
-                    } else if protein[0] == "Thr" {
-                        expanded += ["Threonine"]
-                    } else if protein[0] == "Asp" {
-                        expanded += ["Asparagine"]
-                    } else if protein[0] == "Lys" {
-                        expanded += ["Lysine"]
-                    } else if protein[0] == "Val" {
-                        expanded += ["Valine"]
-                    } else if protein[0] == "Ala" {
-                        expanded += ["Alanine"]
-                    } else if protein[0] == "AspAc" {
-                        expanded += ["Aspartic acid"]
-                    } else if protein[0] == "GluAc" {
-                        expanded += ["Glutamic acid"]
-                    } else if protein[0] == "Stop" {
-                        expanded += ["Stop"]
+                    if var current3 = secondDictionary[protein[0]] {
+                        current3 = current3.replacingOccurrences(of: "Optional", with: "", options: NSString.CompareOptions.literal, range: nil)
+                        expanded += [current3]
+                        current3 = ""
                     }
                     protein.remove(at: 0)
                 }
