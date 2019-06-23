@@ -170,7 +170,6 @@ while e != "transcribe" || e != "translate" {
             break
         } else if aaa == "translate" {
             e += aaa
-            print("〉that's not supported yet")
             break
         } else if aaa == "quit" {
             print("〉Program exited.")
